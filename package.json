@@ -1,0 +1,15 @@
+{
+  "name": "@panzercoinada",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "landing": "pnpm --filter=@panzercoinada/landing"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
