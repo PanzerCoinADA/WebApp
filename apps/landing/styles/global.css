@@ -78,6 +78,18 @@
   pointer-events: none;
 }
 
+/* Add this to your CSS file */
+.meme-text {
+  font-size: 2rem; /* Default size for larger screens */
+}
+
+@media (max-width: 640px) {
+  /* Tailwind's sm breakpoint */
+  .meme-text {
+    font-size: 1.4rem; /* 50% smaller for mobile */
+  }
+}
+
 .sepia-filter {
   filter: sepia(0.5) contrast(1.2) brightness(0.8);
 }

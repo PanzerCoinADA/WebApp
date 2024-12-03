@@ -85,7 +85,7 @@ export default function PanzerWisdom() {
       }}
     >
       {children.split("\n").map((line: string, index: number) => (
-        <span key={index} style={{ fontSize: "1.4rem" }}>
+        <span key={index} className="meme-text">
           {line}
           <br />
         </span>
