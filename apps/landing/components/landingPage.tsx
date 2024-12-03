@@ -2,7 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Img, Box, Heading, Center } from "@chakra-ui/react";
+import {
+  Img,
+  Box,
+  Heading,
+  Center,
+  Link,
+  IconButton,
+  Stack,
+} from "@chakra-ui/react";
+import { FaXTwitter } from "react-icons/fa6";
 
 const WISDOM_RESPONSES = [
   "Smart contracts are just fancy if-else statements.",
@@ -23,6 +32,7 @@ const WISDOM_RESPONSES = [
   "ADA is going to reach $20\nthis cycle.",
   "Hydra allows cardano to scale up to 1 million TPS.",
   "Get wisdom, get $PANZER.",
+  "Decentralization is the most important thing.",
 ];
 
 export default function PanzerWisdom() {
@@ -92,6 +102,7 @@ export default function PanzerWisdom() {
             alignSelf={"center"}
             fontWeight={"extrabold"}
             color="white"
+            size="3xl"
             textAlign={"center"}
           >
             Panzer Of The Lake
@@ -121,14 +132,33 @@ export default function PanzerWisdom() {
             </Box>
           )}
         </div>
-        <Center pt="10">
-          <Button
-            onClick={askPanzer}
-            disabled={isAsking}
-            className="bg-[#8B4513] text-[#f0e68c] hover:bg-[#A0522D] disabled:bg-[#5E2605] text-lg px-6 py-3 border-2 border-[#f0e68c] damaged-button"
-          >
-            {isAsking ? "Summoning wisdom..." : "Ask for wisdom"}
-          </Button>
+        <Center pt="6">
+          <Stack align="center" spacing="4">
+            <Button
+              onClick={askPanzer}
+              disabled={isAsking}
+              className="bg-[#8B4513] text-[#f0e68c] hover:bg-[#A0522D] disabled:bg-[#5E2605] text-lg px-6 py-3 border-2 border-[#f0e68c] damaged-button"
+            >
+              {isAsking ? "Summoning wisdom..." : "Ask for wisdom"}
+            </Button>
+            <Link href={"https://www.x.com/panzercoin"} target="_blank">
+              <IconButton
+                as="button"
+                aria-label={""}
+                icon={<FaXTwitter fontSize="1.25rem" />}
+                color={"white"}
+                transition="0.5s"
+                rounded="xl"
+                bg={"rgba(255, 255, 255, 0.08)"}
+                backdropFilter="auto"
+                backdropBlur="5px"
+                _hover={{
+                  color: "tertiary.600",
+                  bgColor: "rgba(255,255,255,0.3)",
+                }}
+              />
+            </Link>
+          </Stack>
         </Center>
       </div>
     </div>

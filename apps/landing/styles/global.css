@@ -18,7 +18,7 @@
 }
 
 .ww2-background {
-  background-color: #2f4f4f;
+  background-color: rgb(12, 15, 12);
   background-image: linear-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.1) 2px, transparent 2px);
   background-size: 50px 50px;
