@@ -85,7 +85,7 @@ export default function PanzerWisdom() {
       }}
     >
       {children.split("\n").map((line: string, index: number) => (
-        <span key={index}>
+        <span key={index} style={{ fontSize: "1.4rem" }}>
           {line}
           <br />
         </span>
@@ -102,13 +102,17 @@ export default function PanzerWisdom() {
             alignSelf={"center"}
             fontWeight={"extrabold"}
             color="white"
-            size="3xl"
+            size={{ base: "xl", md: "3xl" }}
             textAlign={"center"}
           >
             Panzer Of The Lake
           </Heading>
           <Box>
-            <Box position="absolute" top="48" left="32">
+            <Box
+              position="absolute"
+              top={{ base: "36", md: "48" }}
+              left={{ base: "24", md: "32" }}
+            >
               <MemeText>{"Oh $PANZER of the lake"}</MemeText>
               <MemeText>{"what is your wisdom?"}</MemeText>
             </Box>
@@ -123,10 +127,10 @@ export default function PanzerWisdom() {
           {wisdom && !isAsking && (
             <Box
               position="absolute"
-              bottom="48"
-              left="8"
+              bottom={{ base: "28", md: "48" }}
+              left="4"
               animation={"emerge 0.7s ease-in-out"}
-              maxW="lg"
+              maxW={{ base: "72", md: "lg" }}
             >
               <MemeText>{wisdom}</MemeText>
             </Box>
@@ -138,6 +142,7 @@ export default function PanzerWisdom() {
               onClick={askPanzer}
               disabled={isAsking}
               className="bg-[#8B4513] text-[#f0e68c] hover:bg-[#A0522D] disabled:bg-[#5E2605] text-lg px-6 py-3 border-2 border-[#f0e68c] damaged-button"
+              size={{ base: "md", md: "lg" }}
             >
               {isAsking ? "Summoning wisdom..." : "Ask for wisdom"}
             </Button>
