@@ -78,17 +78,15 @@
   pointer-events: none;
 }
 
-/* Add this to your CSS file */
 .meme-text {
-  font-size: 2rem; /* Default size for larger screens */
-  font-weight: bolder;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 @media (max-width: 640px) {
-  /* Tailwind's sm breakpoint */
   .meme-text {
-    font-size: 1.4rem; /* 50% smaller for mobile */
-    font-weight: bolder;
+    font-size: 1.4rem;
+    font-weight: bold;
   }
 }
 
