@@ -86,9 +86,9 @@
 
 @media (max-width: 640px) {
   .meme-text {
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 0.9;
+    font-size: 1.3rem;
+    font-weight: 200;
+    line-height: 0;
   }
 }
 

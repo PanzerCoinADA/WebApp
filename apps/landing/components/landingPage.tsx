@@ -18,7 +18,7 @@ const WISDOM_RESPONSES = [
   "The true blockchain was the friends we made along the way.",
   "Not your keys, not your crypto, dear wanderer.",
   "A private key should remain more private than your nudes.",
-  "The best time to buy was yesterday, the second best time is... HODL.",
+  "The best time to invest was yesterday, the second best time is today. HODL!",
   "When in doubt, delegate to a single pool operator.",
   "The only constant in crypto is growth.",
   "Every NFT is unique, just like everyone else.",
@@ -33,23 +33,26 @@ const WISDOM_RESPONSES = [
   "Hydra allows cardano to scale up to millions of TPS.",
   "Ouroboros is the most secure and liquid proof-of-stake protocol.",
   "Get wisdom, get $PANZER.",
-  "Once all blockchains join forces, mass adoption will follow.",
+  "Once all blockchains join forces, mass adoption is inevitable.",
   "Decentralization is the most important thing.",
   "Hydra is blitz fast.",
   "Not your keys, not your coins. Beware the shiny exchanges.",
   "In bear markets, diamond hands are forged.",
   "The blockchain never forgets. Think before you send.",
-  "When the market dips, DCA—don't panic.",
+  "When the market dips, DCA — don't panic.",
   "A pump is temporary; FOMO is forever.",
   "Cardano has more than 3000 independent validators.",
-  "Block confirmations take seconds; regret lasts a lifetime.",
+  "Block confirmations take seconds; regret lasts forever.",
   "Wake not for the midnight chart; your sanity has value.",
   "Always double-check the wallet address. Your future depends on it.",
   "The whale sells last, but the shrimp feels it first.",
   "Crypto is volatile, but so is your mood. Stay calm.",
-  "Bull markets are for celebrating; bear markets are for building.",
-  "A paper wallet survives the fire, but not your forgetfulness.",
+  "Bear markets are for building.",
+  "A paper wallet survives the fire, but not your irresponsability.",
   "In crypto, your greatest enemy is your own impatience.",
+  "$PANZER is my favorite memecoin.",
+  "Panzer is currently trading. Try again later.",
+  "We aware of scammers, brave crypto pioneer.",
 ];
 
 export default function PanzerWisdom() {
@@ -87,7 +90,7 @@ export default function PanzerWisdom() {
         color: "#FFFFFF",
         textTransform: "uppercase",
         letterSpacing: "0.04em",
-        lineHeight: "1.2",
+        lineHeight: "1",
         textShadow: `
           -1px -1px 0 #000,  
           1px -1px 0 #000,
@@ -141,17 +144,29 @@ export default function PanzerWisdom() {
             />
           </Box>
 
-          {wisdom && !isAsking && (
-            <Box
-              position="absolute"
-              bottom={{ base: "28", md: "48" }}
-              left="4"
-              animation={"emerge 0.7s ease-in-out"}
-              maxW={{ base: "72", md: "lg" }}
-            >
-              <MemeText>{wisdom}</MemeText>
-            </Box>
-          )}
+          {wisdom &&
+            !isAsking &&
+            (wisdom.length > 61 ? (
+              <Box
+                position="absolute"
+                bottom={{ base: "24", md: "44" }}
+                left="4"
+                animation={"emerge 0.7s ease-in-out"}
+                maxW={{ base: "80", md: "lg" }}
+              >
+                <MemeText>{wisdom}</MemeText>
+              </Box>
+            ) : (
+              <Box
+                position="absolute"
+                bottom={{ base: "28", md: "52" }}
+                left="4"
+                animation={"emerge 0.7s ease-in-out"}
+                maxW={{ base: "80", md: "lg" }}
+              >
+                <MemeText>{wisdom}</MemeText>
+              </Box>
+            ))}
         </div>
         <Center pt="6">
           <Stack align="center" spacing="4">
