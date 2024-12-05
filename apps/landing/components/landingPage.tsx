@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import {
   Img,
   Box,
@@ -10,8 +9,11 @@ import {
   Link,
   IconButton,
   Stack,
+  Button,
+  HStack,
 } from "@chakra-ui/react";
 import { FaXTwitter } from "react-icons/fa6";
+import { EaseInAnimation } from "./animations/EaseInAnimation";
 
 const WISDOM_RESPONSES = [
   "Smart contracts are just fancy if-else statements.",
@@ -114,90 +116,114 @@ export default function PanzerWisdom() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 damaged-overlay">
-      <div className="w-full max-w-2xl mx-auto">
-        <div className="relative meme-container">
-          <Heading
-            my="12"
-            alignSelf={"center"}
-            fontWeight={"extrabold"}
-            color="white"
-            size={{ base: "xl", md: "3xl" }}
-            textAlign={"center"}
-          >
-            Panzer Of The Lake
-          </Heading>
-          <Box>
-            <Box
-              position="absolute"
-              top={{ base: "36", md: "48" }}
-              left={{ base: "24", md: "32" }}
+    <EaseInAnimation>
+      <div className="min-h-screen flex flex-col items-center justify-center p-4 damaged-overlay">
+        <div className="w-full max-w-2xl mx-auto">
+          <div className="relative meme-container">
+            <Heading
+              my="12"
+              alignSelf={"center"}
+              fontWeight={"extrabold"}
+              color="white"
+              size={{ base: "xl", md: "3xl" }}
+              textAlign={"center"}
             >
-              <MemeText>{"Oh $PANZER of the lake"}</MemeText>
-              <MemeText>{"what is your wisdom?"}</MemeText>
-            </Box>
-            <Img
-              src="/images/panzer.png"
-              alt="Panzer of the Lake"
-              className="absolute top-0 left-0 w-full h-auto rounded-lg"
-              style={{ zIndex: -1 }}
-            />
-          </Box>
-
-          {wisdom &&
-            !isAsking &&
-            (wisdom.length > 61 ? (
+              Panzer Of The Lake
+            </Heading>
+            <Box>
               <Box
                 position="absolute"
-                bottom={{ base: "24", md: "44" }}
-                left="4"
-                animation={"emerge 0.7s ease-in-out"}
-                maxW={{ base: "80", md: "lg" }}
+                top={{ base: "36", md: "48" }}
+                left={{ base: "24", md: "32" }}
               >
-                <MemeText>{wisdom}</MemeText>
+                <MemeText>{"Oh $PANZER of the lake"}</MemeText>
+                <MemeText>{"what is your wisdom?"}</MemeText>
               </Box>
-            ) : (
-              <Box
-                position="absolute"
-                bottom={{ base: "28", md: "52" }}
-                left="4"
-                animation={"emerge 0.7s ease-in-out"}
-                maxW={{ base: "80", md: "lg" }}
-              >
-                <MemeText>{wisdom}</MemeText>
-              </Box>
-            ))}
-        </div>
-        <Center pt="6">
-          <Stack align="center" spacing="4">
-            <Button
-              onClick={askPanzer}
-              disabled={isAsking}
-              className="bg-[#8B4513] text-[#f0e68c] hover:bg-[#A0522D] disabled:bg-[#5E2605] text-lg px-6 py-3 border-2 border-[#f0e68c] damaged-button"
-              size={{ base: "md", md: "lg" }}
-            >
-              {isAsking ? "Summoning wisdom..." : "Ask for wisdom"}
-            </Button>
-            <Link href={"https://www.x.com/panzercoin"} target="_blank">
-              <IconButton
-                as="button"
-                aria-label={""}
-                icon={<FaXTwitter fontSize="1.25rem" />}
-                color={"white"}
-                transition="0.5s"
-                rounded="xl"
-                bg={"rgba(255, 255, 255, 0.08)"}
-                backdropFilter="auto"
-                backdropBlur="5px"
-                _hover={{
-                  color: "tertiary.600",
-                  bgColor: "rgba(255,255,255,0.3)",
-                }}
+              <Img
+                src="/images/panzer.png"
+                alt="Panzer of the Lake"
+                className="absolute top-0 left-0 w-full h-auto rounded-lg"
+                style={{ zIndex: -1 }}
               />
-            </Link>
-          </Stack>
-        </Center>
+            </Box>
+
+            {wisdom &&
+              !isAsking &&
+              (wisdom.length > 61 ? (
+                <Box
+                  position="absolute"
+                  bottom={{ base: "24", md: "44" }}
+                  left="4"
+                  animation={"emerge 0.7s ease-in-out"}
+                  maxW={{ base: "80", md: "lg" }}
+                >
+                  <MemeText>{wisdom}</MemeText>
+                </Box>
+              ) : (
+                <Box
+                  position="absolute"
+                  bottom={{ base: "28", md: "52" }}
+                  left="4"
+                  animation={"emerge 0.7s ease-in-out"}
+                  maxW={{ base: "80", md: "lg" }}
+                >
+                  <MemeText>{wisdom}</MemeText>
+                </Box>
+              ))}
+          </div>
+          <Center pt="6">
+            <Stack align="center" spacing="4">
+              <HStack>
+                <Button
+                  onClick={askPanzer}
+                  disabled={isAsking}
+                  bgColor="white"
+                  transition={"0.3s ease-in-out"}
+                  _hover={{ bgColor: "black", textColor: "white" }}
+                  size={{ base: "md", md: "lg" }}
+                >
+                  {isAsking ? "Summoning wisdom..." : "Ask for wisdom"}
+                </Button>
+                <Link
+                  href={
+                    "https://www.snek.fun/token/b011adf5f3b4ca762df01e6e3523f247a64bc87b07d075106063b7e5.50616e7a657220436f696e"
+                  }
+                  target="_blank"
+                >
+                  <Button
+                    onClick={askPanzer}
+                    variant="outline"
+                    disabled={isAsking}
+                    textColor="white"
+                    transition={"0.3s ease-in-out"}
+                    _hover={{ bgColor: "black", textColor: "white" }}
+                    size={{ base: "md", md: "lg" }}
+                  >
+                    {"Buy $PANZER"}
+                  </Button>
+                </Link>
+              </HStack>
+              <Link href={"https://www.x.com/panzercoin"} target="_blank">
+                <IconButton
+                  as="button"
+                  aria-label={""}
+                  icon={<FaXTwitter fontSize="1.25rem" />}
+                  color={"white"}
+                  transition="0.5s"
+                  rounded="xl"
+                  bg={"rgba(255, 255, 255, 0.08)"}
+                  backdropFilter="auto"
+                  backdropBlur="5px"
+                  _hover={{
+                    color: "gray.200",
+                    bgColor: "rgba(255,255,255,0.3)",
+                  }}
+                />
+              </Link>
+            </Stack>
+          </Center>
+        </div>
       </div>
-    </div>
+    </EaseInAnimation>
   );
 }
